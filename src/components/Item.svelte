@@ -50,7 +50,7 @@
   }
 
   .item.completed {
-    background: #ddd;
+    background: #c4dfdbc2;
   }
 
   .item.completed .text-input {

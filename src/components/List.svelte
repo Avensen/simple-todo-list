@@ -3,7 +3,7 @@
   import ToDo from "../todo-api";
   import { items } from "../stores";
   import Item from "./Item.svelte";
-  import NewItem from "./NewItem.svelte";
+  import NewTask from "./NewTask.svelte";
   import { v4 as uuidv4 } from "uuid";
 
   let itemsSorted = [];
@@ -17,7 +17,7 @@
     });
   }
 
-  function handleNewItem(e) {
+  function handleNewTask(e) {
     $items = [
       {
         id: uuidv4(),
@@ -47,11 +47,11 @@
 </script>
 
 <div class="list">
-  <NewItem on:newitem={handleNewItem} />
+  <NewTask on:newtask={handleNewTask} />
   {#each itemsSorted as item, i (item)}
     <Item {...item} on:update={handleUpdate} on:delete={handleDelete} lastItem={i===itemsSorted.length - 1} />
   {:else}
-    <p class="list-status">No items lol</p>
+    <p class="list-status">No pending tasks</p>
   {/each}
 </div>
 
